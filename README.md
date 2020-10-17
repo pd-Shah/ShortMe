@@ -621,3 +621,56 @@ and the second with more details:
      1000    0.001    0.000    0.001    0.000 {method 'write' of '_io.StringIO' objects}
 
 ```
+
+#### 7. API Calls
+
+##### 7.1 signuo
+```commandline
+curl --location --request POST '0.0.0.0/api/signup' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "test@gmail.com",
+    "password": "1"
+}'
+```
+
+##### 7.2 login
+```commandline 
+curl --location --request POST 'http://0.0.0.0/api/login' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: session=.eJwlzjsOwjAMANC7eGaIP4mdXgbZtSNYWzoh7g4S7wTvDfd11PmA7XVcdYP7M2GDnhOFFrKhRputF1Nl91ozkNpwDbdUYtKypKDFuxg7zoEtTLz7qLGXlaeIOkoLJydid2UmjkDvZlkuOrFsFOIkNF6mjAG_yHXW8d8M-HwBinMujQ.X4rwWg.prbInPfaA6ff1LGbYKfN3I4hkEo' \
+--data-raw '{
+    "email": "test@gmail.com",
+    "password": "1"
+}'
+```
+
+##### 7.3 get user urls
+```commandline
+curl --location --request POST 'http://0.0.0.0/api/get-urls' \
+--header 'Authorization: eyJhbGciOiJIUzUxMiIsImlhdCI6MTYwMjk0MTAxOCwiZXhwIjoxNjAzMDAxMDE4fQ.eyJjb2RlIjo2fQ.bX6yyQwekClCvoP7P0Uz7e3IMw3EHaWzJYixZlw7EgCavh4aSFLuyqr67shabgbEk7d_zSRjEghWjegHGbS5aw' \
+--header 'Cookie: session=.eJwlzjsOwjAMANC7eGaIP4mdXgbZtSNYWzoh7g4S7wTvDfd11PmA7XVcdYP7M2GDnhOFFrKhRputF1Nl91ozkNpwDbdUYtKypKDFuxg7zoEtTLz7qLGXlaeIOkoLJydid2UmjkDvZlkuOrFsFOIkNF6mjAG_yHXW8d8M-HwBinMujQ.X4rwWg.prbInPfaA6ff1LGbYKfN3I4hkEo'
+```
+
+##### 7.4
+```commandline
+
+curl --location --request POST 'http://0.0.0.0/api/get-url' \
+--header 'Authorization: eyJhbGciOiJIUzUxMiIsImlhdCI6MTYwMjk0MTAxOCwiZXhwIjoxNjAzMDAxMDE4fQ.eyJjb2RlIjo2fQ.bX6yyQwekClCvoP7P0Uz7e3IMw3EHaWzJYixZlw7EgCavh4aSFLuyqr67shabgbEk7d_zSRjEghWjegHGbS5aw' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: session=.eJwlzjsOwjAMANC7eGaIP4mdXgbZtSNYWzoh7g4S7wTvDfd11PmA7XVcdYP7M2GDnhOFFrKhRputF1Nl91ozkNpwDbdUYtKypKDFuxg7zoEtTLz7qLGXlaeIOkoLJydid2UmjkDvZlkuOrFsFOIkNF6mjAG_yHXW8d8M-HwBinMujQ.X4rwWg.prbInPfaA6ff1LGbYKfN3I4hkEo' \
+--data-raw '{
+    "name": "c0f492edc6"
+}'```
+
+###### 7.5
+```commandline
+curl --location --request POST 'http://0.0.0.0/api/add-url' \
+--header 'Authorization: eyJhbGciOiJIUzUxMiIsImlhdCI6MTYwMjkzNjU0MywiZXhwIjoxNjAyOTk2NTQzfQ.eyJjb2RlIjo2fQ.BOcvWJiy-BkImgslI-aZNv-Rk6kntXNgljXxC7lphE9q6xQ_23OzSmSz_qaus43l9IDcv6xj4STMkuz26YBa9A' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: session=.eJwlzjsOwjAMANC7eGaIP4mdXgbZtSNYWzoh7g4S7wTvDfd11PmA7XVcdYP7M2GDnhOFFrKhRputF1Nl91ozkNpwDbdUYtKypKDFuxg7zoEtTLz7qLGXlaeIOkoLJydid2UmjkDvZlkuOrFsFOIkNF6mjAG_yHXW8d8M-HwBinMujQ.X4re3w.rXNX-zbZgVnIzA0UaW_uB-v87LM' \
+--data-raw '{
+    "url": "www.google.com"
+}'
+
+}'```
