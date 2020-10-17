@@ -1,0 +1,12 @@
+
+.hero-body {
+    background-image: none;
+}
+
+.hero.is-warning {
+    background-color: #fca902;
+}
+
+.hero.is-warning.is-bold{
+    background-image: None;
+}

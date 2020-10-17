@@ -1,0 +1,111 @@
+{% extends 'source.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='css/styles.css') }}">
+{% endblock %}
+{% block body %}
+    {% block hero %}
+        <section id="hero" class="hero is-small is-warning">
+            <div class="hero-head">
+                <nav class="navbar is-warning">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="{{ url_for('admin.index') }}">
+                            <img src="{{ url_for('admin.static', filename='images/admin.png') }}"
+                                 alt="Bulma: a modern CSS framework based on Flexbox">
+                        </a>
+                        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div id="navbarExampleTransparentExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="{{ url_for('admin.index') }}">
+                                Home
+                            </a>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+                                    Panels
+                                </a>
+                                <div class="navbar-dropdown is-boxed">
+                                    <a class="navbar-item" href="{{ url_for('admin.user_admin') }}">
+                                        User
+                                    </a>
+                                    <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                                        Image
+                                    </a><a class="navbar-item"
+                                           href="https://bulma.io/documentation/overview/modifiers/">
+                                    Role
+                                </a>
+
+                                    <hr class="navbar-divider">
+                                    <a class="navbar-item is-active"
+                                       href="{{ url_for('authentication.logout') }}">
+                                        Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="field is-grouped">
+                                    <p class="control">
+                                        <a class="button is-warning"
+                                           href="{{ url_for('authentication.logout') }}">
+                                        <span class="icon">
+                                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                                        </span>
+                                            <span>Logout</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <br>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="message is-warning">
+                            {% for msg in messages %}
+                                <div class="message-body">
+                                    {{ msg }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </section>
+
+    {% endblock %}
+
+    <section>
+        <div class="content is-small">
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-medium is-warning is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="columns">
+                    <div class="column">.</div>
+                    <div class="column">
+                        <p class="has-text-green a-menu is-size-7">
+                            pd © 2020. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="column">.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

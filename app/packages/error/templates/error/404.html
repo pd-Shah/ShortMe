@@ -1,0 +1,8 @@
+{% extends 'error/base.html' %}
+{% block error_title %}{{ code }}{% endblock %}
+{% block error_body %}
+    <p>
+        {{ msg }}
+        <a href="/"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+    </p>
+{% endblock %}

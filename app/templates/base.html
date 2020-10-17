@@ -1,0 +1,297 @@
+{% extends 'source.html' %} {% block body %}
+<!-- Hero -->
+<section id="hero" class="hero is-medium">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <h3 class="logo has-text-green is-size-4">Fancy App</h3>
+          </a>
+        </div>
+
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a
+              href="{{ url_for('index') }}"
+              class="a-menu is-size-7 navbar-item"
+            >
+              home
+            </a>
+            {% if current_user.is_authenticated %}
+            <a
+              href="{{ url_for('authentication.my_profile') }}"
+              class="a-menu is-size-7 navbar-item"
+            >
+              profile
+            </a>
+            <a
+              href="{{ url_for('admin.index') }}"
+              class="a-menu is-size-7 navbar-item"
+            >
+              admin panel
+            </a>
+            <a
+              href="{{ url_for('authentication.logout') }}"
+              class="a-menu is-size-7 navbar-item"
+            >
+              logout
+            </a>
+            {% else %}
+            <a
+              href="{{ url_for('authentication.login') }}"
+              class="a-menu is-size-7 navbar-item"
+            >
+              login
+            </a>
+            <a
+              href="{{ url_for('authentication.sign_up') }}"
+              class="a-menu is-size-7 navbar-item"
+            >
+              sign up
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+    </nav>
+    <br />
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="message is-warning">
+      {% for msg in messages %}
+      <div class="message-body">{{ msg }}</div>
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
+  </div>
+  {% block hero_body %}
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="has-text-green is-size-1 is-size-3-mobile">
+        An engaging headline
+      </h1>
+      <p class="has-text-green">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      </p>
+      <a class="btn button has-mustard-bg is-size-7 a-menu"> try it now </a>
+    </div>
+  </div>
+  {% endblock %}
+</section>
+<!-- END Hero -->
+{% block content %}
+<!-- Twitter Feed -->
+<section id="twitter-feed" class="section has-white-mustard-gradient">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img
+                  src="{{ url_for('static', filename='images/twitter-profile-guy.jpg') }}"
+                  alt="Image"
+                />
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Some guy</strong> <small>@someguy</small>
+                  <small>5m</small>
+                  <br />
+                  Frist time I used @fancyapp, was like the first time I
+                  listened to The Beatles. Christmas came early, I guess.
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="reply">
+                    <span class="icon is-small">
+                      <i class="fas fa-reply" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                  <a class="level-item" aria-label="retweet">
+                    <span class="icon is-small">
+                      <i class="fas fa-retweet" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img
+                  src="{{ url_for('static', filename='images/twitter-profile-girl.jpg') }}"
+                  alt="Image"
+                />
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Some girl</strong> <small>@somegirl</small>
+                  <small>5m</small>
+                  <br />
+                  Fancy App is the answer to all your problems, all praise the
+                  #fancyappgod!
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="reply">
+                    <span class="icon is-small">
+                      <i class="fas fa-reply" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                  <a class="level-item" aria-label="retweet">
+                    <span class="icon is-small">
+                      <i class="fas fa-retweet" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <p class="is-size-7 has-text-centered">See more at #fancyapp</p>
+  </div>
+</section>
+<!-- END Twitter Feed -->
+
+<!-- Features -->
+<section id="features" class="section has-mustard-bg">
+  <div class="container">
+    <div class="columns reverse-row-order">
+      <div class="column">
+        <h3 class="is-size-3">Open Source, all the way</h3>
+        <p class="has-text-green paragraph">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+          rebum.
+        </p>
+      </div>
+      <div class="column">
+        <img
+          class="feature-img"
+          src=" {{ url_for('static', filename='images/feature1.png') }} "
+          alt="feature"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img
+          class="feature-img"
+          src=" {{ url_for('static', filename='images/feature2.png') }}"
+          alt="feature"
+        />
+      </div>
+      <div class="column">
+        <h3 class="is-size-3">Second Exciting Feature</h3>
+        <p class="has-text-green paragraph">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+          rebum.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="columns reverse-row-order">
+      <div class="column">
+        <h3 class="is-size-3">Third Feature, Wow</h3>
+        <p class="has-text-green paragraph">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+          rebum.
+        </p>
+      </div>
+      <div class="column">
+        <img
+          class="feature-img"
+          src=" {{ url_for('static', filename='images/feature3.png') }} "
+          alt="feature"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END Features -->
+<!-- Newsletter -->
+<section id="newsletter" class="section">
+  <div class="container">
+    <h3 class="is-size-3">Newsletter or Call to Action</h3>
+    <p class="has-text-green">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+      voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    </p>
+    <div class="field newsletter-field">
+      {% if current_user.is_authenticated %}
+      <a
+        href="{{ url_for('authentication.login') }}"
+        class="btn button is-warning"
+        disabled
+      >
+        login
+      </a>
+      <a
+        href="{{ url_for('authentication.sign_up') }}"
+        class="btn button is-warning"
+        disabled
+      >
+        Sing Up</a
+      >
+      {% else %}
+      <a
+        href="{{ url_for('authentication.login') }}"
+        class="btn button is-warning"
+      >
+        login
+      </a>
+      <a
+        href="{{ url_for('authentication.sign_up') }}"
+        class="btn button is-warning"
+      >
+        Sing Up</a
+      >
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!-- END Newsletter -->
+{% endblock %} {% block footer %} {% include 'footer.html' %} {% endblock %}
+<!-- END Wrapper -->
+{% endblock %}

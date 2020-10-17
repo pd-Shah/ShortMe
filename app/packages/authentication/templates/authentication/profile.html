@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('authentication.static', filename='css/styles.css') }}"
+/>
+{% endblock %} {% block content %} {% endblock %} {% block footer %} {% endblock
+%} {% block hero_body %}
+<div
+  class="hero-body"
+  style="background-image: url({{ url_for('authentication.static', filename=file_name) }});"
+>
+  <div class="container">
+    <h1 class="has-text-green is-size-1 is-size-3-mobile">
+      An engaging headline {{ user }}
+    </h1>
+    <p class="has-text-green">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+      voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    </p>
+    <a class="btn button has-mustard-bg is-size-7 a-menu"> try it now </a>
+  </div>
+</div>
+{% endblock %}

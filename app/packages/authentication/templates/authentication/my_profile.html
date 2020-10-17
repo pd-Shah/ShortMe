@@ -1,0 +1,246 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('authentication.static', filename='css/styles.css') }}"
+/>
+{% endblock %} {% block content %} {% endblock %} {% block footer %} {% endblock
+%} {% block hero_body %}
+<div class="hero-body">
+  <div class="container">
+    <form method="post" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      <div class="field">
+        <label class="label"
+          >{{ form.name.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.name(class="input is-success", placeholder="yourname") }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-child"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.name.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.family.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.family(class="input is-success", placeholder="yourfanily") }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-address-card"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.family.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.username.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.username(class="input is-success", placeholder="yourusername")
+          }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-user"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.username.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.email.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.email(class="input is-success", placeholder="youremail") }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.email.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.password.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.password(class="input is-success", placeholder="yourpassword")
+          }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-key"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.password.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.role.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.role(class="input is-success", placeholder="yourrole") }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-universal-access"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.role.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.location.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.location(class="input is-success", placeholder="yourlocation")
+          }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-map-marker"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.location.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.about_me.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.about_me(class="input is-success", placeholder="about_me") }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-info"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.about_me.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.last_seen.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.last_seen(class="input is-success", placeholder="lastseen") }}
+          <span class="icon is-small is-left">
+            <i class="fa fa-eye"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.last_seen.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="field">
+        <label class="label"
+          >{{ form.photo.label(class="has-text-green a-menu") }}</label
+        >
+        <div class="control has-icons-left has-icons-right">
+          {{ form.photo(class="input is-success", placeholder="yourphoto") }}
+          <span class="icon is-small is-left">
+            <i class="fas fa-image"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        {% for error in form.photo.errors %}
+        <div class="message is-warning">
+          <div class="message-body">
+            <p class="help is-warning">{{ error }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% if photo %}
+      <div class="field">
+        <div class="control">
+          <label class="label has-text-green a-menu">Photo</label>
+          <img width="250" height="250" src="{{ url_for('authentication.static',
+          filename='images/' + photo)+"?"+time }}">
+        </div>
+      </div>
+      {% endif %}
+      <div>
+        {{ form.submit(class="btn has-mustard-bg is-size-6 a-menu") }}
+        <a
+          href="{{ url_for('authentication.my_profile') }}"
+          class="btn has-mustard-bg is-size-6 a-menu"
+          )
+          >reload</a
+        >
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

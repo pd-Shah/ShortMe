@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+            Welcome!
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bulma/css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script defer src="{{ url_for('static', filename='fontawesome/js/all.js') }}"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+<!-- Wrapper -->
+<section id="wrapper" class="has-text-centered-mobile">
+    {% block body %}
+    {% endblock %}
+</section>
+</body>
+</html>

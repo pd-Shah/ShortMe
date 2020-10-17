@@ -1,0 +1,7 @@
+.hero-body {
+    background-image: none;
+}
+
+.hero.is-medium .hero-body {
+    padding-top: 50px;
+}

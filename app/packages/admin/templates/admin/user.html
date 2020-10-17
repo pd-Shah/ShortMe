@@ -1,0 +1,50 @@
+{% extends 'admin/base.html' %}
+{% block title %} User Admin{% endblock %}
+{% block content %}
+    <table class="table is-striped is-hoverable">
+        <thead>
+        <tr>
+            <th><abbr title="id">id</abbr></th>
+            <th><abbr title="photo">photo</abbr></th>
+            <th><abbr title="name">name</abbr></th>
+            <th><abbr title="family">family</abbr></th>
+            <th><abbr title="username">username</abbr></th>
+            <th><abbr title="role">role</abbr></th>
+            <th><abbr title="email">email</abbr></th>
+            <th><abbr title="location">location</abbr></th>
+            <th><abbr title="about_me">about_me</abbr></th>
+            <th><abbr title="last_sesn">last_sesn</abbr></th>
+            <th><abbr title="is_active">is_active</abbr></th>
+            <th><abbr title="actions">actions</abbr></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <th>{{ user.id }}</th>
+                <td>
+                    {% if user.photo %}
+                        <img width="40" height="40"
+                             src="{{ url_for('authentication.static', filename='images/' + user.get_photo_url())+"?" }}">
+                    {% else %}
+                        <i class="fa fa-images" aria-hidden="true"></i>
+                    {% endif %}
+                </td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.family }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.role }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.location }}</td>
+                <td>{{ user.about_me }}</td>
+                <td>{{ user.last_seen }}</td>
+                <td>{{ user.is_active }}</td>
+                <th>
+                    <a><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a><i class="fa fa-user-edit" aria-hidden="true"></i></a>
+                </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'admin/base.html' %}
+{% block hero %}
+     <!-- Hero -->
+        <section id="hero" class="hero is-large is-warning">
+            <div class="hero-head">
+                <nav class="navbar is-warning">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="{{ url_for('admin.index') }}">
+                            <img src="{{ url_for('admin.static', filename='images/admin.png') }}"
+                                 alt="Bulma: a modern CSS framework based on Flexbox">
+                        </a>
+                        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div id="navbarExampleTransparentExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="{{ url_for('admin.index') }}">
+                                Home
+                            </a>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+                                    Panels
+                                </a>
+                                <div class="navbar-dropdown is-boxed">
+                                    <a class="navbar-item" href="{{ url_for('admin.user_admin') }}">
+                                        User
+                                    </a>
+                                    <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                                        Image
+                                    </a><a class="navbar-item"
+                                           href="https://bulma.io/documentation/overview/modifiers/">
+                                    Role
+                                </a>
+
+                                    <hr class="navbar-divider">
+                                    <a class="navbar-item is-active"
+                                       href="{{ url_for('authentication.logout') }}">
+                                        Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="field is-grouped">
+                                    <p class="control">
+                                        <a class="button is-warning"
+                                           href="{{ url_for('authentication.logout') }}">
+                                        <span class="icon">
+                                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                                        </span>
+                                            <span>Logout</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <br>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="message is-warning">
+                            {% for msg in messages %}
+                                <div class="message-body">
+                                    {{ msg }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            {% block hero_body %}
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="has-text-green is-size-1 is-size-3-mobile">
+                            Admin Page
+                        </h1>
+                        <p class="has-text-green">
+                            In order to start, just select an admin panel from panel dropdown list.
+                        </p>
+                        <a href="{{ url_for('authentication.my_profile') }}"
+                           class="btn button has-mustard-bg is-size-7 a-menu">
+                            admin profile
+                        </a>
+                    </div>
+                </div>
+            {% endblock %}
+        </section>
+        <!-- Hero -->
+{% endblock %}
+
+{% block menu %} {% endblock %}

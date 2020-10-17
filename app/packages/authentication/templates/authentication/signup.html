@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block hero_body %}
+<div class="hero-body">
+  <div class="container">
+    <h1 class="has-text-green is-size-2 is-size-3-mobile">
+      That's it. SingUp.
+    </h1>
+    <div class="columns">
+      <div class="column is-two-fifths">
+        <form method="post">
+          {{ form.hidden_tag() }}
+          <div class="field">
+            {{ form.email.label(class="has-text-green a-menu is-size-4
+            is-size-5-mobile") }} {{ form.email(class="input") }} {% for error
+            in form.email.errors %}
+            <div class="message is-warning">
+              <div class="message-body">{{ error }}</div>
+            </div>
+            {% endfor %} {{ form.password.label(class="has-text-green a-menu
+            is-size-4 is-size-5-mobile") }} {{ form.password(class="input") }}
+            {% for error in form.password.errors %}
+            <div class="message is-warning">
+              <div class="message-body">{{ error }}</div>
+            </div>
+            {% endfor %}
+            <br /><br />
+            <div class="columns">
+              <div class="column">
+                {{ form.submit(class="btn has-mustard-bg is-size-7 a-menu") }}
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="column"></div>
+      <div class="column"></div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block content %} {% endblock %}

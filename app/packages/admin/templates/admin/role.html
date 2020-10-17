@@ -1,0 +1,29 @@
+{% extends 'admin/base.html' %}
+{% block title %} Role Admin{% endblock %}
+{% block content %}
+    <table class="table is-striped is-hoverable">
+        <thead>
+        <tr>
+            <th><abbr title="id">id</abbr></th>
+            <th><abbr title="name">name</abbr></th>
+            <th><abbr title="users">users</abbr></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for role in roles %}
+            <tr>
+                <th>{{ role.id }}</th>
+                <th>{{ role.name }}</th>
+                <th>
+                    {% if role.users %}
+                        {% for user in  role.users.all() %}
+                            {{ user.email }},
+                        {% endfor %}
+                    {% else %}
+                    {% endif %}
+                </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
